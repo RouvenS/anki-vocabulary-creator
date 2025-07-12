@@ -14,21 +14,8 @@ log = logging.getLogger("anki-creator")
 oai = openai.AsyncOpenAI(api_key=OPENAI_API_KEY)
 http = httpx.AsyncClient(timeout=60.0)            # for AnkiConnect
 
-PROMPT_HEADER = """
-You are an assistant creating JSON flashcards for Russian-English vocabulary.
-For each word pair (Russian – English), do the following:
- 1. If the word is a verb, include both imperfective and perfective aspects.
- 2. Write one short example sentence in the present tense using the Russian verb.
- 3. Return a JSON object with the following structure:
-    • "front" – the English translation
-    • "back" – a full back side of the card, including the Russian infinitive, aspects, and example sentence with English translation, with line breaks between each part.
-    • "pure_russian" – a space-separated string with:
-        – the Russian infinitive
-        – the perfective form (if available)
-        – the example sentence
-
-Use correct Russian stress marks. Output ONLY the JSON — no explanations, no markdown, and no formatting around the JSON.
-"""
+with open(PROMPT_FILE, "r", encoding="utf-8") as f:
+    PROMPT_HEADER = f.read()
 
 # ---------- helpers ----------
 DASH = re.compile(r"\s*[-–—]\s*")    # any kind of dash

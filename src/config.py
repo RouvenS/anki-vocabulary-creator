@@ -1,21 +1,21 @@
 # src/config.py
 import os
 from pathlib import Path
-from dotenv import load_dotenv          # ← NEW
+from dotenv import load_dotenv
 
 # ----------------- load .env first -----------------
 ROOT = Path(__file__).parent.parent
-load_dotenv(ROOT / ".env")              # searches .env and populates os.environ
+load_dotenv(ROOT / ".env")
 # ---------------------------------------------------
 
 # ----- EDIT ME IF YOU LIKE -----
-DECK_NAME = "Russian"
-MODEL_NAME = "Russian Basic"
+DECK_NAME = "Russisch::chati-test"
+MODEL_NAME = "Basic"
 AUDIO_DIR = ROOT / "audio"
 VOCAB_FILE = ROOT / "vocab.txt"
 OPENAI_MODEL = "gpt-4o-mini"
-TTS_MODEL = "tts-1"
-TTS_VOICE = "alloy"
+TTS_MODEL = "gpt-4o-mini-tts"
+TTS_VOICE = "sage"
 MAX_CONCURRENT_REQUESTS = 3
 # --------------------------------
 

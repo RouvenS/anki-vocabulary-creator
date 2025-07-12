@@ -21,8 +21,8 @@ For each word pair (Russian – English), do the following:
  2. Write one short example sentence in the present tense using the Russian verb.
  3. Return a JSON object with the following structure:
     • "front" – the English translation
-    • "back" – a full back side of the card, including the Russian infinitive, aspects, and example sentence with English translation
-    • "pure_russian" – a newline-separated string with:
+    • "back" – a full back side of the card, including the Russian infinitive, aspects, and example sentence with English translation, with line breaks between each part.
+    • "pure_russian" – a space-separated string with:
         – the Russian infinitive
         – the perfective form (if available)
         – the example sentence
@@ -69,9 +69,9 @@ async def tts_worker(in_q: asyncio.Queue, out_q: asyncio.Queue):
                 model=TTS_MODEL,
                 voice=TTS_VOICE,
                 input=card["pure_russian"],
-                format="mp3",
+                response_format="mp3",
             )
-            mp3_bytes = await resp.read()
+            mp3_bytes = await resp.aread()
             fname = re.sub(r"\W+", "_", card["rus"]) + ".mp3"
             fpath = AUDIO_DIR / fname
             fpath.write_bytes(mp3_bytes)
@@ -90,13 +90,13 @@ def build_anki_note(card: dict) -> dict:
         "deckName": DECK_NAME,
         "modelName": MODEL_NAME,
         "fields": {
-            "English": card["front"],
-            "Russian": card["back"],
+            "Front": card["front"],
+            "Back": card["back"].replace("\n", "<br>"),
         },
         "audio": [{
             "filename": card["audio_path"].name,
             "data": b64,
-            "fields": ["Russian"]      # play on back
+            "fields": ["Back"]      # play on back
         }],
         "tags": ["auto"],
     }

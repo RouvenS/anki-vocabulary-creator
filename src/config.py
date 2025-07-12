@@ -9,11 +9,12 @@ load_dotenv(ROOT / ".env")
 # ---------------------------------------------------
 
 # ----- EDIT ME IF YOU LIKE -----
+LANGUAGE = "russian"
 DECK_NAME = "Russisch::chati-test"
 MODEL_NAME = "Basic"
 AUDIO_DIR = ROOT / "audio"
 VOCAB_FILE = ROOT / "vocab.txt"
-PROMPT_FILE = ROOT / "prompts" / "russian-prompt.txt"
+PROMPT_FILE = ROOT / "prompts" / LANGUAGE / "prompt.txt"
 OPENAI_MODEL = "gpt-4o-mini"
 TTS_MODEL = "gpt-4o-mini-tts"
 TTS_VOICE = "sage"

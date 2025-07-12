@@ -20,3 +20,6 @@ __pycache__/
 
 # Media
 audio/
+
+# Vocab files
+vocab.txt

@@ -78,3 +78,7 @@ Contributions are welcome! Here are some ways you can help:
 - [x] Create a prompt folder for prompts in different languages. Others can add prompts for languages or improve existing ones.
 - [x] Make prompt chooseable by config
 - [x] Add a readme quick start guide like remind to install anki extension
+- [] Improve Prompt and give clear instructions for different words and what to do for words that aren't yet definined like nouns etc.
+- [] Try to use JSON Function to verify valid output
+- [] Add Speed Setting to config for TTS
+- [] Use Completions Endpoint to make sure it is a valid json every time

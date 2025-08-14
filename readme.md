@@ -79,6 +79,9 @@ Contributions are welcome! Here are some ways you can help:
 - [x] Make prompt chooseable by config
 - [x] Add a readme quick start guide like remind to install anki extension
 - [] Improve Prompt and give clear instructions for different words and what to do for words that aren't yet definined like nouns etc.
+    - [] Add Gender to nouns (f/m/n)
+- [] Mark stressed part in word
+- [] Shotprompt examples for noun, verb and adjective.
 - [] Try to use JSON Function to verify valid output
 - [] Add Speed Setting to config for TTS
 - [] Use Completions Endpoint to make sure it is a valid json every time

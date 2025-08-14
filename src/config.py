@@ -10,7 +10,7 @@ load_dotenv(ROOT / ".env")
 
 # ----- EDIT ME IF YOU LIKE -----
 LANGUAGE = "russian"
-DECK_NAME = "Russisch::chati-test"
+DECK_NAME = "Russisch::Vokabeln"
 MODEL_NAME = "Basic"
 AUDIO_DIR = ROOT / "audio"
 VOCAB_FILE = ROOT / "vocab.txt"
